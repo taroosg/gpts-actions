@@ -96,6 +96,8 @@ _class:
 
 # 🍺
 
+![qr](./img/QR_338533.png)
+
 <!--
 _class:
  - lead
