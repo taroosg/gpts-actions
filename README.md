@@ -6,7 +6,7 @@ marp: true
 theme: gaia
 class:
  - invert
-headingDivider: 2 
+headingDivider: 2
 paginate: true
 -->
 
@@ -16,118 +16,90 @@ _class:
  - invert
 -->
 
-# Deploy Marp to GitHub Pages
+# GPTs で外部 API を叩いてみた
 
-Presentations to Webpages: Instantly!
+ちょっと何が起こっているのかわからない
+
+## 自己紹介（Twitter: @taroosg）
+
+```json
+{
+  "name": "Taro Ohsugi",
+  "works": [
+    {
+      "work": "🎓 G's ACADEMY FUKUOKA 主任講師",
+      "skills": ["JavaScript", "React", "PHP", "Laravel"]
+    },
+    {
+      "work": "🎓 エンジニア",
+      "skills": ["Laravel", "JavaScript", "画面設計", "DB設計"]
+    }
+  ],
+  "like": ["💻", "📚", "🛩️ 🚌 🚅 🚃", "🥃 🍷 🍺", "🚮"]
+}
+```
 
 ## What?
 
-[Marp](https://marp.app/) lets you create HTML slides from markdown (like this!).
+あ…ありのまま 今 起こった事を話すぜ！
+おれは GPTs で API を叩こうと思っていたらいつのまにか JSON を書いていた…
 
-This presentation is both a [website](https://alexsci.com/marp-to-pages) and a [README.md](https://github.com/ralexander-phi/marp-to-pages/blob/main/README.md).
+な… 何を言ってるのか わからねーと思うがおれも何をされたのかわからなかった… 頭がどうにかなりそうだった…
 
-## Why?
+自動化だとかノーコードだとかそんなチャチなもんじゃあ断じてねえ…
 
-Treat your presentation the same way you treat code.
+もっと恐ろしいものの片鱗を味わったぜ…
 
-- Use git to track changes
-- Pull requests to collaborate
-- Deploy automatically
-- See a problem? Open an issue!
+## GPTs とは
 
-## Setup
+- ChatGPT のカスタマイズバージョンを自由に作成できる．
 
-Want to create your own?
+- ファイルを読み込ませてデータソースとして使用できる．
 
-First, create a new repo [from the template repo](https://github.com/ralexander-phi/marp-to-pages).
+- 使用する機能を指定できる（画像生成や Web ブラウジングなど）．
 
-![](img/use-template.png)
+- 【重要】外部 API にリクエストを送れる．
 
-## Configure GitHub Pages
+良さげな感じだったのと，かなり意味分からなかったので紹介する．
 
-Open your new repo and [setup publishing](https://help.github.com/en/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#choosing-a-publishing-source).
+## 外部 API を叩いてみる
 
-You'll typically use `gh-pages` as the deploy branch.
+1. JSON を書く（書かなくて良い）．
 
-## Review Build
+2. テストする（ボタン押すだけ）．
 
-Click on Actions tab and see if the build succeeded (it may take some time).
+3. リクエスト内容や出力内容を調整する（やることない）．
 
-![](img/click-actions.png)
+## 作ったもの（デモ）
 
-You should now see the generated files in the `gh-pages` branch.
+場所を指定すると，気象情報を取得してその結果によってオススメの飲食店を提案するやつ．
 
-## View webpage
+- 天気：Open-Meteo
 
-Open your deployed webpage to see the content.
+- 飲食店情報：Google Places
 
-Out of the box you should see `README.md` as `/index.html` and `/README.pdf`. Slides under `docs/` are also converted.
+## 良さげな点
 
-## Running locally
+- データソースを指定できる．
 
-Locally you'll run commands like:
+- 複数の API を組み合わせることができる．
 
-```
-$ marp README.md -o build/README.pdf
-```
+- スプレッドシートや Notion と連携できるのも可能性感じる．
 
-or
+## 注意点とか
 
-```
-$ npx @marp-team/marp-cli@latest README.md -o build/README.pdf
-```
+- 処理には多少時間がかかる．
 
-## As a workflow step
+- API キーの扱い．
 
-The workflow runs an equivalent step:
+- プロンプト・インジェクションに注意する．
 
-```
-- name: Marp Build (README.pdf)
-  uses: docker://marpteam/marp-cli:v1.7.0
-  with:
-    args: README.md -o build/README.pdf
-  env:
-    MARP_USER: root:root
-```
+# 🍺
 
-Note the `args` match the previous slide.
-
-## Customizing the build
-
-Anything in the `build/` folder will be deployed to GitHub Pages.
-
-You can copy extra files or run further processing steps using other tools.
-
-## Learn more about Marp
-
-This is a good time to learn more about Marp. Here's some resources:
-
-- [CommonMark](https://commonmark.org/)
-- [Cheat Sheet](https://commonmark.org/help/)
-- [Themes](https://github.com/marp-team/marp-core/tree/master/themes)
-- [CSS Themes](https://marpit.marp.app/theme-css)
-- [Directives](https://marpit.marp.app/directives)
-- [VS Code plugin](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
-
-## Example Sites
-
-Known sites using this action are:
-
-- [University of Illinois at Urbana-Champaign's CS 199 Even More Practice](https://cs199emp.netlify.app/) [(code)](https://github.com/harsh183/emp-125)
-- [Exploring agent based models](https://roiarthurb.github.io/Talk-UMMISCO_06-07-2020/) [(code)](https://github.com/RoiArthurB/Talk-UMMISCO_06-07-2020)
-
-Send a [pull request](https://github.com/ralexander-phi/marp-to-pages) to get your site added.
-
-## Publish your slides
-
-When you are ready to share your presentation, commit or merge to `main` and your content on GitHub Pages will automatically update.
-
-# 🎉
 <!--
 _class:
  - lead
  - invert
 -->
-### Hooray!
 
-
+### Enjoy!
